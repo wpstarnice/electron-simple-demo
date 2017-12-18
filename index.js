@@ -20,7 +20,7 @@ function createWindow () {
   }))
 
   // 启用开发者工具。
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', function () {
     mainWindow = null
