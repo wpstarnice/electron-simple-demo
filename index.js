@@ -1,8 +1,5 @@
-const electron = require('electron')
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
-const Menu = electron.Menu
-
+const {electron,app,BrowserWindow,Menu} = require('electron')
+ 
 const path = require('path')
 const url = require('url')
 
@@ -14,6 +11,10 @@ let menuTemplate = [
     submenu: [
       {
         label: '关于',
+        // 快捷键
+        accelerator: 'CmdOrCtrl+Z',
+
+        // 点击函数
         click: () => {
           openAboutWindow();
         }
@@ -67,7 +68,7 @@ function openAboutWindow() {
 app.on('ready', createWindow)
 
 // 当所有窗口被关闭后触发
-app.on('window-all-closed',  () => {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
